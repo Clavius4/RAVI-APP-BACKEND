@@ -12,24 +12,24 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition(
         servers = {
                 @Server(
-                        url = "http://172.17.17.42:8090",
+                        url = "http://http://172.17.20.221:9091/",
                         description = "Development Server - Local IP"
                 ),
                 @Server(
-                        url = "http://154.118.227.229:8050",
+                        url = "http://http://138.68.168.43:9091/",
                         description = "Production Server - Public IP"
                 ),
-                @Server(
-                        url = "https://status.kakakuona.tz",
-                        description = "Production Server - Domain"
-                )
+//                @Server(
+//                        url = "https://status.kakakuona.tz",
+//                        description = "Production Server - Domain"
+//                )
         },
         info = @Info(
-                title = "Oxygen Status API",
+                title = "RAVI-APP API",
                 version = "v1",
-                description = "Oxygen Status RESTful API for Mobile Apps Android & iOS\n" +
+                description = "RAVI-APP RESTful API for Mobile Apps Android & iOS\n" +
                         "\nContacts:\n",
-//                        "- Joyce Kimata: [LinkedIn](https://www.linkedin.com/in/iamsammysd/)\n",
+//                        "- Paul Tome: [LinkedIn](https://www.linkedin.com/in/iamsammysd/)\n",
                 license = @License(
                         name = "MIT License",
                         url = "https://github.com/bchen04/springboot-swagger-rest-api/blob/master/LICENSE"
@@ -43,4 +43,5 @@ import org.springframework.context.annotation.Configuration;
         scheme = "bearer"
 )
 public class SwaggerConfig {
+
 }
