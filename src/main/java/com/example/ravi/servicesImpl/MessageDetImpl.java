@@ -60,7 +60,7 @@ public class MessageDetImpl extends MessageDetService {
                                 "Tax District: " + district
                 );
                 List<Recipient> recipients = new ArrayList<>();
-                recipients.add(new Recipient(1, "255782671763"));
+                recipients.add(new Recipient(1, "255781969373"));
                 receivedMessage.setRecipients(recipients);
                 ResponseMessage responseFromDownstream = smsIntegrationService.getResponseFromDownstream(receivedMessage);
 
