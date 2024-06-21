@@ -91,8 +91,7 @@ public class AuthServiceImpl extends AuthService {
         Response<ResponseMessage> responseMessageResponse = smsIntegrationService.sendMessage(receivedMessage);
         if (responseMessageResponse.getCode() != ResponseCode.SUCCESS) {
             log.info(String.valueOf(responseMessageResponse.getCode()));
-        }
-        else {
+        } else {
             log.info(String.valueOf(responseMessageResponse.getCode()));
         }
         log.info("OTP sent");
@@ -137,13 +136,20 @@ public class AuthServiceImpl extends AuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         user.setUpdatedAt(LocalDateTime.now());
-        userRepository.save(user);
 
+        userRepository.save(user);
+        String phoneNumber = user.getPhoneNumber();
+        String firstName = user.getFirstName();
+        String lastName = user.getLastName();
+        String getRegion = user.getRegion();
+        String getDistrict = user.getDistrict();
+        String getOrganisationType = user.getOrganisationType();
+        String getOrganisationName = user.getOrganisationName();
         // Generate JWT tokens using JWTUtils
         String accessToken = jwtUtils.generateJwtToken(authentication);
         String refreshToken = UUID.randomUUID().toString();  // Implement refresh token logic if needed
 
-        TokenResponse tokenResponse = new TokenResponse(accessToken, "bearer", refreshToken, 3600, "read write");
+        TokenResponse tokenResponse = new TokenResponse(accessToken, "bearer", refreshToken, 3600, "read write",phoneNumber,firstName,lastName,getRegion,getDistrict,getOrganisationType,getOrganisationName);
 
         return new ResponseEntity<>(tokenResponse, HttpStatus.OK);
     }
