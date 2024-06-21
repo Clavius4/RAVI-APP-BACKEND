@@ -14,10 +14,10 @@ public class TokenResponse {
     private String phoneNumber;
     private String firstName;
     private String lastName;
-    private String organisationName;
-    private String organisationType;
     private String district;
     private String region;
+    private String organisationName;
+    private String organisationType;
 
 
     public TokenResponse(String message) {
