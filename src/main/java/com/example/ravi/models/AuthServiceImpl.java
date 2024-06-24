@@ -141,15 +141,16 @@ public class AuthServiceImpl extends AuthService {
         String phoneNumber = user.getPhoneNumber();
         String firstName = user.getFirstName();
         String lastName = user.getLastName();
-        String region = user.getRegion();
         String district = user.getDistrict();
-        String organisationType = user.getOrganisationType();
+        String region = user.getRegion();
         String organisationName = user.getOrganisationName();
+        String organisationType = user.getOrganisationType();
+
         // Generate JWT tokens using JWTUtils
         String accessToken = jwtUtils.generateJwtToken(authentication);
         String refreshToken = UUID.randomUUID().toString();  // Implement refresh token logic if needed
 
-        TokenResponse tokenResponse = new TokenResponse(accessToken, "bearer", refreshToken, 3600, "read write",phoneNumber,firstName,lastName,region,district,organisationType,organisationName);
+        TokenResponse tokenResponse = new TokenResponse(accessToken, "bearer", refreshToken, 3600, "read write",phoneNumber,firstName,lastName,district,region,organisationName,organisationType);
 
         return new ResponseEntity<>(tokenResponse, HttpStatus.OK);
     }
